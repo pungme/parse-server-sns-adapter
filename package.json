@@ -1,36 +1,100 @@
 {
-  "name": "parse-server-sns-adapter",
-  "version": "0.0.7",
-  "description": "Open Source Parse SNS Adapter",
-  "main": "src/index.js",
-  "scripts": {
-    "test": "TESTING=1 node ./node_modules/.bin/isparta cover -x **/spec/** --root src ./node_modules/jasmine/bin/jasmine.js"
+  "_args": [
+    [
+      {
+        "raw": "parse-server-sns-adapter@git+https://github.com/pungme/parse-server-sns-adapter.git",
+        "scope": null,
+        "escapedName": "parse-server-sns-adapter",
+        "name": "parse-server-sns-adapter",
+        "rawSpec": "git+https://github.com/pungme/parse-server-sns-adapter.git",
+        "spec": "git+https://github.com/pungme/parse-server-sns-adapter.git",
+        "type": "hosted",
+        "hosted": {
+          "type": "github",
+          "ssh": "git@github.com:pungme/parse-server-sns-adapter.git",
+          "sshUrl": "git+ssh://git@github.com/pungme/parse-server-sns-adapter.git",
+          "httpsUrl": "git+https://github.com/pungme/parse-server-sns-adapter.git",
+          "gitUrl": "git://github.com/pungme/parse-server-sns-adapter.git",
+          "shortcut": "github:pungme/parse-server-sns-adapter",
+          "directUrl": "https://raw.githubusercontent.com/pungme/parse-server-sns-adapter/master/package.json"
+        }
+      },
+      "/home/centos/apps/parse-server/source"
+    ]
+  ],
+  "_from": "git+https://github.com/pungme/parse-server-sns-adapter.git",
+  "_id": "parse-server-sns-adapter@0.0.7",
+  "_inCache": true,
+  "_location": "/parse-server-sns-adapter",
+  "_phantomChildren": {
+    "sax": "1.1.5",
+    "xml2js": "0.4.15",
+    "xmlbuilder": "2.6.2"
+  },
+  "_requested": {
+    "raw": "parse-server-sns-adapter@git+https://github.com/pungme/parse-server-sns-adapter.git",
+    "scope": null,
+    "escapedName": "parse-server-sns-adapter",
+    "name": "parse-server-sns-adapter",
+    "rawSpec": "git+https://github.com/pungme/parse-server-sns-adapter.git",
+    "spec": "git+https://github.com/pungme/parse-server-sns-adapter.git",
+    "type": "hosted",
+    "hosted": {
+      "type": "github",
+      "ssh": "git@github.com:pungme/parse-server-sns-adapter.git",
+      "sshUrl": "git+ssh://git@github.com/pungme/parse-server-sns-adapter.git",
+      "httpsUrl": "git+https://github.com/pungme/parse-server-sns-adapter.git",
+      "gitUrl": "git://github.com/pungme/parse-server-sns-adapter.git",
+      "shortcut": "github:pungme/parse-server-sns-adapter",
+      "directUrl": "https://raw.githubusercontent.com/pungme/parse-server-sns-adapter/master/package.json"
+    }
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/pungme/parse-server-sns-adapter.git#9498fd4e93016a6a152f8ed83ca9b3c2a2e7b4a5",
+  "_shasum": "0f859ed0e9422dd5bc1117d4f3f73d38b218bc98",
+  "_shrinkwrap": null,
+  "_spec": "parse-server-sns-adapter@git+https://github.com/pungme/parse-server-sns-adapter.git",
+  "_where": "/home/centos/apps/parse-server/source",
+  "author": {
+    "name": "Roger Hu"
+  },
+  "bugs": {
+    "url": "https://github.com/parse-server-modules/parse-server-sns-adapter/issues"
   },
   "dependencies": {
+    "aws-sdk": "~2.2.33",
     "npmlog": "^2.0.3",
     "parse": "^1.8.0",
-    "aws-sdk": "~2.2.33",
-    "parse-server-push-adapter": "^1.0.1"
+    "parse-server-push-adapter": "^1.1.0"
   },
+  "description": "Open Source Parse SNS Adapter",
   "devDependencies": {
     "codecov": "^1.0.1",
     "isparta": "^4.0.0",
     "jasmine": "^2.3.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:parse-server-modules/parse-server-sns-adapter.git"
-  },
+  "gitHead": "9498fd4e93016a6a152f8ed83ca9b3c2a2e7b4a5",
+  "homepage": "https://github.com/parse-server-modules/parse-server-sns-adapter/blob/master/README.md",
   "keywords": [
     "AWS",
     "SNS",
     "push",
     "parse-server"
   ],
-  "author": "Roger Hu",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/parse-server-modules/parse-server-sns-adapter/issues"
+  "main": "src/index.js",
+  "name": "parse-server-sns-adapter",
+  "optionalDependencies": {},
+  "readme": "### Parse Amazon SNS Push Adapter\r\n\r\n[![Build\r\nStatus](https://travis-ci.org/parse-server-modules/parse-server-sns-adapter.svg?branch=master)](https://travis-ci.org/parse-server-modules/parse-server-sns-adapter)\r\n[![codecov.io](https://codecov.io/github/parse-server-modules/parse-server-sns-adapter/coverage.svg?branch=master)](https://codecov.io/github/parse-server-modules/parse-server-sns-adapter?branch=master)\r\n[![NPM Version](https://img.shields.io/npm/v/parse-server-sns-adapter.svg?style=flat-square)](https://www.npmjs.com/package/parse-server-sns-adapter)\r\n\r\nThis adapter can be used with Parse open source to leverage the Amazon Simple Notification Service (SNS), which attempts to abstract away the complexities of different push notification systems.  Currently, there is only support for iOS (Apple Push Notification Service) and Android (Google Cloud Messaging) devices.\r\n\r\nTo add other push types, you simply need to know what kind of payload format to be sent and this adapter will need to be modified to send it.  This adapter leverages code from the [parse-server-push-adapter](https://github.com/parse-server-modules/parse-server-push-adapter) repo.  See the [Amazon documentation](http://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html) if you wish to add other types.  Make sure to add test coverage for any additional ones inside the `spec` folder.\r\n\r\n#### Known limitations\r\n\r\n* The adapter always makes a network call to Amazon's service to exchange a device token for an Amazon Resource Number (ARN).\r\n\r\n* Amazon will disable devices that have device tokens that are considered invalid by the push notifications.  There is currently no check in place to see if the ARN used to send is enabled.\r\n\r\n* SNS does not appear to have batching sends with GCM.\r\n\r\n#### Setup\r\n\r\nThe steps basically entail:\r\n\r\n* Adding Platform endpoints to AWS console\r\n   * Apple requires you loading the prod/development certificates.\r\n\r\n       * Generate a certificate request.\r\n       * Upload the `.certSigningRequest` file.\r\n       * Download the cert.\r\n       * \"Open With > Keychain access (default)\"  You should see the private key associated with this cert.  Export this file as a .p12 file\r\n         and upload it through the Amazon SNS console.\r\n\r\n    * You can also verify the cert can be used to connect to Apple's push service:\r\n\r\n        - Convert the x509 cert to PEM format:\r\n           * `openssl x509 -in myapnsappcert.cer -inform DER -out myapnscert.pem`\r\n        - Convert the private key (not the cert) to `.p12` format\r\n           * `openssl pkcs12 -in myapnsappprivatekey.p12 -out myapnsappprivatekey.pem -nodes -clcerts`\r\n        - Try making a connection request to Apple's push servers:\r\n           * Dev - `openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert myapnsappcert.pem -key myapnsappprivatekey.pem`\r\n           * Prod - `openssl s_client -connect gateway.push.apple.com:2195 -cert myapnsappcert.pem -key myapnsappprivatekey.pem`\r\n\r\n* Setup an IAM role for platform endpoints.\r\n* Generate AWS access key and secret with this authorized IAM role.\r\n* Enable CloudSearch logs for debugging.\r\n* Configure Parse server\r\n\r\n#### Configurating Platform Endpoints\r\n\r\n1. Sign into the Amazon Web Services (AWS) Console.\r\n2. Select the `SNS` Service.\r\n3. Select `Create Platform Application`.\r\n     * For GCM setup, you must provide an API key.  See the [instructions](https://github.com/ParsePlatform/parse-server/wiki/Push#gcm-android) about how to generate this key.\r\n     * For APNS setup, you must generate an SSL certificate that can connect to Apple's servers.  See step #1 of this [tutorial](https://github.com/ParsePlatform/PushTutorial/blob/master/iOS/README.md#1-creating-the-ssl-certificate).  You will need to choose between `Apple Production` and `Apple Development` depending on the cert generated.\r\n        * If you do not use a passpharse with the certificate, you can click on the `Load Credentials File` and the `Private Key` section should be auto filled out.  Otherwise, you will need to enter the correct passphrase in order to load.\r\n4. Record the Amazon Resource Number (ARN) associated with this new endpoint.\r\n\r\n#### Setting up IAM Role\r\n\r\n1. Go to the Amazon [IAM](https://console.aws.amazon.com/iam/home?#home) console.\r\n2. Create a user that will be granted access to SNS.\r\n3. Select the `Policies` tab and click on the `Create Policy` button.\r\n4. Select `Create Your Own Policy` and fill out a `Policy Name`.\r\n5. Copy this Policy document that will grant blanket access to SNS services.  You can add more [restrictions](http://docs.aws.amazon.com/sns/latest/dg/AccessPolicyLanguage_UseCases_Sns.html) later.\r\n\r\n       ```javascript\r\n       {\r\n          \"Version\": \"2012-10-17\",\r\n          \"Statement\": [\r\n          {\r\n            \"Action\": [\r\n              \"sns:*\"\r\n            ],\r\n            \"Effect\": \"Allow\",\r\n            \"Resource\": \"*\"\r\n          }\r\n         ]\r\n       }\r\n       ```\r\n6. Make sure to `Validate the Policy` and click `Create Policy`.\r\n7. Go back to the `Users` tab and select the user you created earlier.\r\n8. In Permissions, select `Attach Policy` and find the policy we just created to attach it.\r\n9. Click on `Security Credentials` and click on `Create Access Key`.\r\n10. Record the credentials, which will be used to configure the Parse server.  You will need to set the access and secret key as the environment variables `SNS_ACCESS_KEY` and `SNS_SECRET_ACCESS_KEY` respectively.\r\n\r\n#### Configuring Parse Server\r\n\r\nYou will need add this NPM package to the `package.json` used in conjunction with the Parse open source package:\r\n\r\n```javascript\r\n\"dependencies\": {\r\n  \"parse-server-sns-adapter\": \"~0.0.7\"\r\n}\r\n```\r\n\r\nType `npm install` and make sure this module got added to your `node_modules` dir.\r\n\r\nHere is a sample config setup.  You can specify the `SNS_ACCESS_KEY` and `SNS_SECRET_ACCESS_KEY`\r\nas environment variables, or you can hard-code them here.\r\n\r\nFor iOS certificates, make sure to set the `production` and `bundleId` according to the type\r\nof certificate generated.\r\n\r\n```javascript\r\nvar pushConfig =  { pushTypes : { android: {ARN : 'arn:aws:sns:us-west-2:12345678:app/GCM/Android'},\r\n                                  ios: {ARN:'arn:aws:sns:us-west-2:12345678:app/APNS_SANDBOX/ParseAppleTest', production: false, bundleId: \"beta.parseplatform.yourappname\"}\r\n                                 },\r\n                   accessKey: process.env.SNS_ACCESS_KEY,\r\n                   secretKey: process.env.SNS_SECRET_ACCESS_KEY,\r\n                   region: \"us-west-2\"\r\n                 };\r\n\r\nvar SNSPushAdapter = require('parse-server-sns-adapter');\r\nvar snsPushAdapter = new SNSPushAdapter(pushConfig);\r\npushConfig['adapter'] = snsPushAdapter;\r\n```\r\n\r\nYou then need to instantiate the ParseServer info with the following:\r\n\r\n```javascript\r\nvar api = new ParseServer({\r\n\r\n  push: pushConfig\r\n});\r\n```\r\n\r\n#### Troubleshooting\r\n\r\n* Inside the Amazon SNS Console, click on the `Applications` tab, select an endpoint and choose the\r\n`Actions` dropdown to select `Delivery status`.  Click on `Create IAM roles` which will enable SNS to write to CloudWatch.   You can then go to the CloudWatch console, click on the `Logs`, and view the results of any pushes that may have been issued.\r\n\r\n* Make sure that you use the right Apple certificate for production/development purposes.  Your Parse push configuration needs to have the `production` flag set to be `true` or `false`, and you must configure your Amazon endpoints.  Also verify the `bundleId` corresponds to the app that can receive these push notifications.\r\n\r\n* If you wish to test this adapter locally and assuming you have a Parse open source server setup locally, make sure to install `node-inspector`:\r\n\r\n  ```bash\r\n  npm install node-inspector\r\n  ```\r\n\r\n  Assuming you've hard-coded your configuration inside `index.js`, run your Parse server with the following line:\r\n\r\n  ```bash\r\n  node --debug index.js\r\n  ```\r\n\r\n  Run `node-inspector` in a separate window:\r\n\r\n  ```bash```\r\n  node_modules/.bin/node-inspector\r\n  ```\r\n\r\n  Open up http://127.0.0.1:8080/?port=5858 locally. You can use the Chrome debugging tools to set breakpoints in the JavaScript code.\r\n\r\n* Set `VERBOSE=1` or `VERBOSE_PARSE_SERVER_SNS_ADAPTER=1` as an environment variable to see all logging.",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/parse-server-modules/parse-server-sns-adapter.git"
   },
-  "homepage": "https://github.com/parse-server-modules/parse-server-sns-adapter/blob/master/README.md"
+  "scripts": {
+    "test": "TESTING=1 node ./node_modules/.bin/isparta cover -x **/spec/** --root src ./node_modules/jasmine/bin/jasmine.js"
+  },
+  "version": "0.0.7"
 }
